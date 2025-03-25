@@ -1,0 +1,30 @@
+@import "tailwindcss";
+
+.hero-section {
+    background: linear-gradient(to bottom, #1e0033, #000000); /* smooth gradient */
+    padding-bottom: 0;
+  }
+  
+  .section-divider {
+    height: 30px;
+    background: linear-gradient(to bottom, rgba(0,0,0,0.5), #1e1e4f);
+  }
+  
+
+  .about-section {
+    background-color: #1e1e4f;
+    padding-top: 0;
+  }
+  
+  @keyframes floating {
+    0%, 100% {
+      transform: translateY(0px);
+    }
+    50% {
+      transform: translateY(20px);
+    }
+  }
+  .animate-floating {
+    animation: floating 6s ease-in-out infinite;
+  }
+  

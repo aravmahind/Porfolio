@@ -1,0 +1,84 @@
+import React, { useEffect, useState } from "react";
+import { motion } from "framer-motion";
+import Button from "./ui/Button";
+
+const Home = ({ onViewProjectsClick }) => {
+  const [animate, setAnimate] = useState(false);
+
+  useEffect(() => {
+    setAnimate(true);
+    const timer = setTimeout(() => setAnimate(false), 1200);
+    return () => clearTimeout(timer);
+  }, []);
+
+  return (
+    <section className="relative h-screen bg-gradient-to-r from-[#0f0c29] via-[#302b63] to-[#24243e] text-white flex flex-col lg:flex-row items-center justify-between px-8 sm:px-16 md:px-24 lg:px-32 overflow-hidden">
+      {/* Floating Neon Blobs */}
+      <div className="absolute top-0 left-0 w-72 h-72 bg-purple-500 opacity-30 rounded-full blur-3xl animate-pulse"></div>
+      <div className="absolute bottom-0 right-0 w-96 h-96 bg-blue-500 opacity-30 rounded-full blur-3xl animate-pulse"></div>
+
+      {/* Left Content */}
+      <div className="z-10 text-center lg:text-left max-w-2xl w-full lg:w-1/2">
+        <motion.h1
+          initial={{ opacity: 0, y: -30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 1 }}
+          className="text-5xl md:text-7xl font-extrabold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-pink-500 drop-shadow-xl"
+        >
+          Hey, I’m Arav
+        </motion.h1>
+
+        <motion.p
+          initial={{ opacity: 0, y: 50 }}
+          animate={animate ? { opacity: 1, y: 0 } : { opacity: 1, y: 0 }}
+          transition={{ duration: 1, delay: 0.5 }}
+          className="text-lg md:text-2xl mb-8 text-gray-300 drop-shadow-md"
+        >
+          I craft immersive web experiences that blend creativity with
+          performance.
+        </motion.p>
+
+        <motion.div
+          initial={{ opacity: 0, scale: 0.8 }}
+          animate={animate ? { opacity: 1, scale: 1 } : { opacity: 1, scale: 1 }}
+          transition={{ duration: 0.8, delay: 1 }}
+          className="flex justify-center lg:justify-start gap-6"
+        >
+          <Button
+            className="bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-700 hover:to-pink-700 text-white px-8 py-3 rounded-full text-lg transition-all duration-300 shadow-lg hover:scale-105"
+            onClick={onViewProjectsClick}
+          >
+            View Projects
+          </Button>
+          <a
+            href="/resume.pdf"
+            download
+            className="border border-violet-400 bg-transparent hover:bg-violet-700 hover:text-white text-violet-200 px-8 py-3 rounded-full text-lg transition-all duration-300 shadow-lg hover:scale-105"
+          >
+            Download Resume
+          </a>
+        </motion.div>
+      </div>
+
+      {/* Right Section: Classy Photo Frame */}
+      <motion.div
+        initial={{ opacity: 0, scale: 0.8 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{ duration: 1, delay: 1 }}
+        className="w-full lg:w-1/2 flex justify-center relative"
+      >
+        <div className="relative rounded-full overflow-hidden p-3 bg-gradient-to-r from-violet-500 to-blue-500 shadow-xl transform hover:scale-105 transition-all duration-500">
+          <img
+            src="/AravPPicwithoutBG.png"
+            alt="Arav Mahind"
+            className="w-64 h-64 md:w-80 md:h-80 lg:w-96 lg:h-96 object-cover rounded-full border-4 border-violet-400 shadow-lg"
+            loading="lazy"
+          />
+        </div>
+      </motion.div>
+    </section>
+  );
+};
+
+export default Home;
