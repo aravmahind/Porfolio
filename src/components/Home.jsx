@@ -12,17 +12,17 @@ const Home = ({ onViewProjectsClick }) => {
   }, []);
 
   return (
-    <section className="relative h-screen bg-gradient-to-r from-[#0f0c29] via-[#302b63] to-[#24243e] text-white flex flex-col lg:flex-row items-center justify-between px-8 sm:px-16 md:px-24 lg:px-32 overflow-hidden">
+    <section className="relative h-screen bg-gradient-to-r from-[#0f0c29] via-[#1c1938] to-[#15132b] text-white flex flex-col lg:flex-row items-center justify-between px-8 sm:px-16 md:px-24 lg:px-32 overflow-hidden">
+      
       {/* Floating Neon Blobs */}
-      <div className="absolute top-0 left-0 w-72 h-72 bg-purple-500 opacity-30 rounded-full blur-3xl animate-pulse"></div>
-      <div className="absolute bottom-0 right-0 w-96 h-96 bg-blue-500 opacity-30 rounded-full blur-3xl animate-pulse"></div>
+      <div className="absolute top-[-80px] left-[-50px] w-72 h-72 bg-purple-500 opacity-20 rounded-full blur-3xl animate-pulse"></div>
+      <div className="absolute bottom-[-80px] right-[-50px] w-96 h-96 bg-blue-500 opacity-20 rounded-full blur-3xl animate-pulse"></div>
 
       {/* Left Content */}
       <div className="z-10 text-center lg:text-left max-w-2xl w-full lg:w-1/2">
         <motion.h1
           initial={{ opacity: 0, y: -30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
+          animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1 }}
           className="text-5xl md:text-7xl font-extrabold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-pink-500 drop-shadow-xl"
         >
@@ -77,6 +77,20 @@ const Home = ({ onViewProjectsClick }) => {
           />
         </div>
       </motion.div>
+      <div className="absolute bottom-0 left-0 w-full overflow-hidden leading-none">
+  <svg
+    viewBox="0 0 1440 320"
+    className="w-full h-40"
+    preserveAspectRatio="none"
+  >
+    <path
+      fill="#15132b" /* Match the next section background */
+      fillOpacity="1"
+      d="M0,288L48,261.3C96,235,192,181,288,149.3C384,117,480,107,576,112C672,117,768,139,864,160C960,181,1056,203,1152,186.7C1248,171,1344,117,1392,90.7L1440,64V320H0Z"
+    ></path>
+  </svg>
+</div>
+
     </section>
   );
 };

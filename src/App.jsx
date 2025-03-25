@@ -6,6 +6,7 @@ import About from './components/About';
 import MyProjects from './components/MyProjects';
 import Contacts from './components/Contacts';
 import TechPage from './components/TechPage';
+import Cursor from './components/Cursor';
 
 function App() {
   // Create a reference to the MyProjects section
@@ -18,6 +19,7 @@ function App() {
 
   return (
     <div>
+      <Cursor />
       <Navbar />
       <Home onViewProjectsClick={scrollToProjects} />
       <About />

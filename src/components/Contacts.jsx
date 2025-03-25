@@ -1,106 +1,113 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
-import { FaEnvelope, FaPhoneAlt, FaMapMarkerAlt } from "react-icons/fa";
+import Button from "./ui/Button";
 
 const Contact = () => {
+  const [animate, setAnimate] = useState(false);
+
+  useEffect(() => {
+    setAnimate(true);
+    const timer = setTimeout(() => setAnimate(false), 1200);
+    return () => clearTimeout(timer);
+  }, []);
+
   return (
-    <section
-      id="contact"
-      className="bg-gradient-to-r from-[#1f1c2c] via-[#302b63] to-[#24243e] text-white h-screen px-8 sm:px-16 md:px-24 lg:px-32 py-20"
-    >
-      <motion.h2
-        initial={{ opacity: 0, y: 30 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8 }}
-        className="text-4xl font-extrabold mb-12 text-center text-violet-300"
-      >
-        Get in Touch
-      </motion.h2>
+    <section className="relative h-screen bg-gradient-to-r from-[#0f0c29] via-[#1c1938] to-[#15132b] text-white flex flex-col lg:flex-row items-center justify-between px-8 sm:px-16 md:px-24 lg:px-32 overflow-hidden">
+      {/* Left Content */}
+      <div className="z-10 text-center lg:text-left max-w-2xl w-full lg:w-1/2">
+        <motion.h1
+          initial={{ opacity: 0, y: -30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1 }}
+          className="text-5xl md:text-7xl font-extrabold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-pink-500 drop-shadow-xl"
+        >
+          Get in Touch
+        </motion.h1>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
-        {/* Contact Info */}
+        <motion.p
+          initial={{ opacity: 0, y: 50 }}
+          animate={animate ? { opacity: 1, y: 0 } : { opacity: 1, y: 0 }}
+          transition={{ duration: 1, delay: 0.5 }}
+          className="text-lg md:text-2xl mb-8 text-gray-300 drop-shadow-md"
+        >
+          Feel free to reach out for collaborations or just a friendly chat!
+        </motion.p>
+
         <motion.div
-          initial={{ opacity: 0, x: -50 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.8 }}
-          className="space-y-8"
+          initial={{ opacity: 0, scale: 0.8 }}
+          animate={
+            animate ? { opacity: 1, scale: 1 } : { opacity: 1, scale: 1 }
+          }
+          transition={{ duration: 0.8, delay: 1 }}
+          className="flex justify-center lg:justify-start gap-6"
         >
-          <div className="flex items-center gap-4">
-            <FaEnvelope className="text-violet-500 text-3xl" />
-            <div>
-              <h4 className="text-xl font-semibold">Email</h4>
-              <p className="text-lg text-gray-300">aravmahind7@gmail.com</p>
-            </div>
-          </div>
-          <div className="flex items-center gap-4">
-            <FaPhoneAlt className="text-violet-500 text-3xl" />
-            <div>
-              <h4 className="text-xl font-semibold">Phone</h4>
-              <p className="text-lg text-gray-300">(+91) 8928396948</p>
-            </div>
-          </div>
-          <div className="flex items-center gap-4">
-            <FaMapMarkerAlt className="text-violet-500 text-3xl" />
-            <div>
-              <h4 className="text-xl font-semibold">Location</h4>
-              <p className="text-lg text-gray-300">Koparkhairane, Navi Mumbai, India</p>
-            </div>
-          </div>
+          {/* <Button className="bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-700 hover:to-pink-700 text-white px-8 py-3 rounded-full text-lg transition-all duration-300 shadow-lg hover:scale-105">
+            Send a Message
+          </Button> */}
+          <a
+            href="mailto:aravmahind7@gmail.com"
+            className="border border-violet-400 bg-transparent hover:bg-violet-700 hover:text-white text-violet-200 px-8 py-3 rounded-full text-lg transition-all duration-300 shadow-lg hover:scale-105"
+          >
+            Email Me
+          </a>
         </motion.div>
+      </div>
 
-        {/* Contact Form */}
-        <motion.form
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          action="https://formspree.io/f/xqapbjoq"
-          method="POST"
-          className="bg-[#2a2550] p-8 rounded-xl shadow-lg space-y-6"
-        >
-          <div>
-            <label className="block text-sm font-medium text-gray-300 mb-1">
-              Name
-            </label>
+      {/* Right Section: Contact Form */}
+      <motion.div
+        initial={{ opacity: 0, scale: 0.8 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{ duration: 1, delay: 1 }}
+        className="w-full lg:w-1/2 flex justify-center relative"
+      >
+        <div className="p-8 rounded-3xl shadow-xl w-full max-w-md">
+          <h2 className="text-2xl font-bold text-gray-300 mb-4">
+            Send a Message
+          </h2>
+          <form action="https://formspree.io/f/xqapbjoq" method="POST">
             <input
               type="text"
               name="name"
+              placeholder="Your Name"
+              className="w-full p-3 mb-4 border rounded-lg focus:outline-none focus:ring-2 focus:ring-violet-500"
               required
-              className="w-full px-4 py-2 rounded-md bg-gray-100 text-gray-900 focus:outline-none focus:ring-2 focus:ring-violet-500"
             />
-          </div>
-
-          <div>
-            <label className="block text-sm font-medium text-gray-300 mb-1">
-              Email
-            </label>
             <input
               type="email"
               name="email"
+              placeholder="Your Email"
+              className="w-full p-3 mb-4 border rounded-lg focus:outline-none focus:ring-2 focus:ring-violet-500"
               required
-              className="w-full px-4 py-2 rounded-md bg-gray-100 text-gray-900 focus:outline-none focus:ring-2 focus:ring-violet-500"
             />
-          </div>
-
-          <div>
-            <label className="block text-sm font-medium text-gray-300 mb-1">
-              Message
-            </label>
             <textarea
               name="message"
-              rows="5"
+              rows="4"
+              placeholder="Your Message"
+              className="w-full p-3 mb-4 border rounded-lg focus:outline-none focus:ring-2 focus:ring-violet-500"
               required
-              className="w-full px-4 py-2 rounded-md bg-gray-100 text-gray-900 focus:outline-none focus:ring-2 focus:ring-violet-500"
             ></textarea>
-          </div>
+            <button
+              type="submit"
+              className="w-full bg-gradient-to-r from-purple-500 to-pink-500 text-white px-6 py-3 rounded-lg shadow-lg hover:scale-105 transition-all duration-300"
+            >
+              Send
+            </button>
+          </form>
+        </div>
+      </motion.div>
 
-          <button
-            type="submit"
-            className="flex items-center gap-2 bg-violet-600 hover:bg-violet-700 text-white font-semibold px-6 py-2 rounded-md transition-all duration-300"
-          >
-            <FaEnvelope />
-            Send Message
-          </button>
-        </motion.form>
+      <div className="absolute bottom-0 left-0 w-full overflow-hidden leading-none">
+        <svg
+          viewBox="0 0 1440 320"
+          className="w-full h-40"
+          preserveAspectRatio="none"
+        >
+          <path
+            fill="#15132b"
+            fillOpacity="1"
+            d="M0,288L48,261.3C96,235,192,181,288,149.3C384,117,480,107,576,112C672,117,768,139,864,160C960,181,1056,203,1152,186.7C1248,171,1344,117,1392,90.7L1440,64V320H0Z"
+          ></path>
+        </svg>
       </div>
     </section>
   );

@@ -1,79 +1,69 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { FaLaptopCode } from "react-icons/fa";
+import Button from "./ui/Button";
 
-const MyProjects = React.forwardRef((props, ref) => {
-  const projects = [
-    {
-      title: "SmartPack AI",
-      description:
-        "An intelligent travel packing assistant that suggests items based on location, weather, and trip duration.",
-      link: "#",
-    },
-    {
-      title: "SkillX Platform",
-      description:
-        "A dynamic learning platform that offers personalized courses, skill assessments, and certification, built to empower learners and professionals.",
-      link: "#",
-    },
-    {
-      title: "Doctor Appointment Automation",
-      description:
-        "An automated system to streamline doctor appointment scheduling, patient reminders, and management, aimed at improving healthcare efficiency.",
-      link: "#",
-    },
-    {
-      title: "Smart Parking System",
-      description:
-        "A parking system that uses real-time data to manage available parking spots efficiently, developed with PHP and MySQL.",
-      link: "#",
-    },
-  ];
+const projects = [
+  {
+    title: "SmartPack AI",
+    description: "An intelligent packing assistant that suggests items based on weather and location.",
+    image: "/smartpack-ai.png",
+    link: "#"
+  },
+  {
+    title: "AquaGrow",
+    description: "An IoT-based automated plant watering system with real-time monitoring.",
+    image: "/aquagrow.png",
+    link: "#"
+  },
+  {
+    title: "Filmophilia",
+    description: "A movie vault website with an interactive UI to explore and rate movies.",
+    image: "/filmophilia.png",
+    link: "#"
+  }
+];
 
+const MyProjects = () => {
   return (
-    <section
-      ref={ref}
-      id="projects"
-      className="bg-gradient-to-r from-[#1f1c2c] via-[#302b63] to-[#24243e] text-white h-screen px-8 sm:px-16 md:px-24 lg:px-32 py-20"
-    >
+    <section className="relative min-h-screen bg-gradient-to-r from-[#0f0c29] via-[#1c1938] to-[#15132b] text-white px-8 sm:px-16 md:px-24 lg:px-32 py-20">
+      
+      {/* Section Title */}
       <motion.h2
-        initial={{ opacity: 0, y: 30 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8 }}
-        className="text-4xl font-bold mb-12 text-center text-violet-300"
+        initial={{ opacity: 0, y: -30 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 1 }}
+        className="text-5xl font-extrabold text-center mb-12 bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-pink-500 drop-shadow-xl"
       >
-        Projects
+        My Projects
       </motion.h2>
 
-      <div className="grid gap-8 md:grid-cols-2">
+      {/* Project Layout */}
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
         {projects.map((project, index) => (
           <motion.div
             key={index}
-            initial={{ opacity: 0, y: 40 }}
+            initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ delay: index * 0.2 }}
-            className="bg-[#2a2550] p-6 rounded-xl shadow-lg flex items-start gap-4 transform transition-all hover:scale-[1.03] hover:shadow-violet-500/30 hover:shadow-2xl"
+            transition={{ duration: 0.8, delay: index * 0.2 }}
+            className={`bg-[#1c1938] p-6 rounded-xl shadow-xl border border-violet-400 transition-transform duration-300 hover:scale-105 ${index === 0 ? 'md:col-span-2 lg:col-span-1' : ''}`}
           >
-            <FaLaptopCode className="text-3xl text-violet-400 mt-1" />
-            <div>
-              <h3 className="text-xl font-semibold text-white mb-2">
-                {project.title}
-              </h3>
-              <p className="text-gray-300 mb-3">{project.description}</p>
-              <a
-                href={project.link}
-                className="text-blue-400 hover:underline"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                View Project →
-              </a>
-            </div>
+            <img
+              src={project.image}
+              alt={project.title}
+              className="w-full h-48 object-cover rounded-lg mb-4 border border-violet-300"
+            />
+            <h3 className="text-2xl font-bold text-purple-400">{project.title}</h3>
+            <p className="text-gray-300 mt-2 mb-4">{project.description}</p>
+            <a href={project.link} className="inline-block mt-2">
+              <Button className="bg-gradient-to-r from-purple-500 to-pink-500 text-white px-6 py-2 rounded-lg shadow-lg hover:scale-105 transition-all duration-300">
+                View Project
+              </Button>
+            </a>
           </motion.div>
         ))}
       </div>
     </section>
   );
-});
+};
 
 export default MyProjects;

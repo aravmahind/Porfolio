@@ -8,7 +8,11 @@ const About = () => {
 
   const containerVariants = {
     hidden: { opacity: 0, y: 50 },
-    visible: { opacity: 1, y: 0, transition: { type: "spring", stiffness: 50, damping: 20 } },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { type: "spring", stiffness: 50, damping: 20 },
+    },
   };
 
   const educationList = [
@@ -26,26 +30,24 @@ const About = () => {
 
   return (
     <section
-      ref={ref}
-      className="relative min-h-screen bg-gradient-to-r from-[#0f0c29] via-[#302b63] to-[#24243e] text-white px-8 sm:px-16 md:px-24 lg:px-32 py-20 flex flex-col items-center overflow-hidden"
-    >
-      {/* Floating Neon Blobs */}
-      <div className="absolute top-0 left-0 w-72 h-72 bg-purple-500 opacity-30 rounded-full blur-3xl animate-pulse"></div>
-      <div className="absolute bottom-0 right-0 w-96 h-96 bg-blue-500 opacity-30 rounded-full blur-3xl animate-pulse"></div>
-
+    ref={ref}
+    className="relative min-h-screen bg-gradient-to-b from-[#15132b] via-[#1a183a] to-[#0f0c29] text-white px-8 sm:px-16 md:px-24 lg:px-32 pt-20 pb-20 flex flex-col items-center overflow-hidden"
+  >
+  
       <motion.div
         className="text-center max-w-4xl mb-12"
         variants={containerVariants}
         initial="hidden"
         animate={inView ? "visible" : "hidden"}
       >
-        <h2 className="text-5xl font-extrabold bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-pink-500 drop-shadow-xl">
+        <h2 className="text-5xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-pink-400 to-purple-500 drop-shadow-lg">
           About Me
         </h2>
         <p className="text-lg text-gray-300 leading-7 mt-4">
-          Hey there! I'm <span className="text-purple-400 font-semibold">Arav Mahind</span>,
-          a Computer Engineering student passionate about crafting modern web applications that blend
-          performance, creativity, and user engagement.
+          Hey there! I'm{" "}
+          <span className="text-purple-400 font-semibold">Arav Mahind</span>, a
+          Computer Engineering student passionate about crafting modern web
+          applications.
         </p>
       </motion.div>
 
@@ -54,7 +56,7 @@ const About = () => {
         {educationList.map((edu, i) => (
           <motion.div
             key={i}
-            className="relative bg-[#2a2550] bg-opacity-80 rounded-xl p-6 shadow-lg flex items-start gap-4 transform transition-all hover:scale-[1.03] hover:shadow-violet-500/40 hover:shadow-2xl backdrop-blur-lg"
+            className="relative bg-[#241e4e] bg-opacity-80 rounded-xl p-6 shadow-lg flex items-start gap-4 transform transition-all hover:scale-[1.03] hover:shadow-violet-500/40 hover:shadow-2xl backdrop-blur-md"
             variants={containerVariants}
             initial="hidden"
             animate={inView ? "visible" : "hidden"}
@@ -69,6 +71,20 @@ const About = () => {
           </motion.div>
         ))}
       </div>
+      <div className="absolute bottom-0 left-0 w-full overflow-hidden leading-none">
+  <svg
+    viewBox="0 0 1440 320"
+    className="w-full h-40"
+    preserveAspectRatio="none"
+  >
+    <path
+      fill="#15132b" /* Match the next section background */
+      fillOpacity="1"
+      d="M0,288L48,261.3C96,235,192,181,288,149.3C384,117,480,107,576,112C672,117,768,139,864,160C960,181,1056,203,1152,186.7C1248,171,1344,117,1392,90.7L1440,64V320H0Z"
+    ></path>
+  </svg>
+</div>
+
     </section>
   );
 };
