@@ -10,17 +10,18 @@ const projects = [
     link: "#"
   },
   {
-    title: "AquaGrow",
-    description: "An IoT-based automated plant watering system with real-time monitoring.",
-    image: "/aquagrow.png",
+    title: "SkillX",
+    description: "A skill-building platform with an interactive UI to explore and rate courses.",
+    image: "/skillx.png",
     link: "#"
   },
   {
-    title: "Filmophilia",
-    description: "A movie vault website with an interactive UI to explore and rate movies.",
-    image: "/filmophilia.png",
+    title: "Doctor Appointment Automation",
+    description: "An IoT-based automated appointment scheduling system with real-time monitoring.",
+    image: "/doctor-appointment-automation.png",
     link: "#"
   }
+  
 ];
 
 const MyProjects = () => {
@@ -47,11 +48,11 @@ const MyProjects = () => {
             transition={{ duration: 0.8, delay: index * 0.2 }}
             className={`bg-[#1c1938] p-6 rounded-xl shadow-xl border border-violet-400 transition-transform duration-300 hover:scale-105 ${index === 0 ? 'md:col-span-2 lg:col-span-1' : ''}`}
           >
-            <img
+            {/* <img
               src={project.image}
               alt={project.title}
               className="w-full h-48 object-cover rounded-lg mb-4 border border-violet-300"
-            />
+            /> */}
             <h3 className="text-2xl font-bold text-purple-400">{project.title}</h3>
             <p className="text-gray-300 mt-2 mb-4">{project.description}</p>
             <a href={project.link} className="inline-block mt-2">

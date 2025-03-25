@@ -61,22 +61,32 @@ const Home = ({ onViewProjectsClick }) => {
         </motion.div>
       </div>
 
-      {/* Right Section: Classy Photo Frame */}
       <motion.div
-        initial={{ opacity: 0, scale: 0.8 }}
-        animate={{ opacity: 1, scale: 1 }}
-        transition={{ duration: 1, delay: 1 }}
-        className="w-full lg:w-1/2 flex justify-center relative"
-      >
-        <div className="relative rounded-full overflow-hidden p-3 bg-gradient-to-r from-violet-500 to-blue-500 shadow-xl transform hover:scale-105 transition-all duration-500">
-          <img
-            src="/AravPPicwithoutBG.png"
-            alt="Arav Mahind"
-            className="w-64 h-64 md:w-80 md:h-80 lg:w-96 lg:h-96 object-cover rounded-full border-4 border-violet-400 shadow-lg"
-            loading="lazy"
-          />
-        </div>
-      </motion.div>
+  initial={{ opacity: 0, scale: 0.8 }}
+  animate={{ opacity: 1, scale: 1 }}
+  transition={{ duration: 1, delay: 1 }}
+  className="w-full lg:w-1/2 flex justify-center relative"
+>
+  <div className="relative group rounded-full p-2 bg-gradient-to-r from-[#6a11cb] to-[#2575fc] shadow-xl transform transition-all duration-500 hover:scale-105">
+
+    {/* Darker Glassmorphism Effect */}
+    <div className="absolute inset-0 bg-black bg-opacity-20 backdrop-blur-xl rounded-full shadow-inner"></div>
+
+    {/* Profile Image */}
+    <div className="relative p-2 rounded-full overflow-hidden border-[3px] border-gray-800 group-hover:border-blue-500 transition-all duration-500">
+      <img
+        src="/AravPPicwithoutBG.png"
+        alt="Arav Mahind"
+        className="w-64 h-64 md:w-80 md:h-80 lg:w-96 lg:h-96 object-cover rounded-full shadow-lg transition-all duration-500"
+        loading="lazy"
+      />
+    </div>
+
+    {/* Soft Glow on Hover */}
+    <div className="absolute inset-0 rounded-full bg-gradient-to-r from-purple-500 to-blue-500 opacity-20 blur-2xl transition-all duration-500 group-hover:opacity-40"></div>
+  </div>
+</motion.div>
+
       <div className="absolute bottom-0 left-0 w-full overflow-hidden leading-none">
   <svg
     viewBox="0 0 1440 320"
