@@ -19,8 +19,8 @@ const TechPage = () => {
     <section className="relative overflow-hidden h-screen bg-gradient-to-r from-[#0f0c29] via-[#1c1938] to-[#15132b] text-white flex flex-col items-center justify-center px-8">
       
       {/* Background Glow Effects */}
-      <div className="absolute top-[-100px] left-[-50px] w-80 h-80 bg-purple-500 opacity-20 rounded-full blur-3xl animate-pulse"></div>
-      <div className="absolute bottom-[-100px] right-[-50px] w-96 h-96 bg-blue-500 opacity-20 rounded-full blur-3xl animate-pulse"></div>
+      <div className="absolute top-[-100px] left-[-50px] w-55 h-55 bg-purple-500 opacity-20 rounded-full blur-3xl animate-pulse"></div>
+      <div className="absolute bottom-[-100px] right-[-50px] w-55 h-55 bg-blue-500 opacity-20 rounded-full blur-3xl animate-pulse"></div> 
 
       {/* Title */}
       <motion.h1

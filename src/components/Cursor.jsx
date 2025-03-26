@@ -22,8 +22,8 @@ const Cursor = () => {
       }}
       transition={{
         type: "spring",
-        stiffness: 700, // Increased stiffness for faster movement
-        damping: 20, // Reduced damping for a snappier effect
+        stiffness: 2700, // Increased stiffness for faster movement
+        damping: 27, // Reduced damping for a snappier effect
       }}
       style={{
         background: "rgba(180, 60, 255, 0.9)", // Vibrant glow color

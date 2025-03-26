@@ -12,11 +12,11 @@ const Home = ({ onViewProjectsClick }) => {
   }, []);
 
   return (
-    <section className="relative h-screen bg-gradient-to-r from-[#0f0c29] via-[#1c1938] to-[#15132b] text-white flex flex-col lg:flex-row items-center justify-between px-8 sm:px-16 md:px-24 lg:px-32 overflow-hidden">
+    <section id="home" className="relative h-screen bg-gradient-to-r from-[#0f0c29] via-[#1c1938] to-[#15132b] text-white flex flex-col lg:flex-row items-center justify-between px-8 sm:px-16 md:px-24 lg:px-32 overflow-hidden">
       
       {/* Floating Neon Blobs */}
-      <div className="absolute top-[-80px] left-[-50px] w-72 h-72 bg-purple-500 opacity-20 rounded-full blur-3xl animate-pulse"></div>
-      <div className="absolute bottom-[-80px] right-[-50px] w-96 h-96 bg-blue-500 opacity-20 rounded-full blur-3xl animate-pulse"></div>
+      <div className="absolute top-[-80px] left-[-50px] w-55 h-55 bg-purple-500 opacity-20 rounded-full blur-3xl animate-pulse"></div>
+      <div className="absolute bottom-[-80px] right-[-50px] w-77 h-77 bg-blue-500 opacity-20 rounded-full blur-3xl animate-pulse"></div>
 
       {/* Left Content */}
       <div className="z-10 text-center lg:text-left max-w-2xl w-full lg:w-1/2">

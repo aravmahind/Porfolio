@@ -12,7 +12,7 @@ const Contact = () => {
   }, []);
 
   return (
-    <section className="relative h-screen bg-gradient-to-r from-[#0f0c29] via-[#1c1938] to-[#15132b] text-white flex flex-col lg:flex-row items-center justify-between px-8 sm:px-16 md:px-24 lg:px-32 overflow-hidden">
+    <section id="contact" className="relative h-screen bg-gradient-to-r from-[#0f0c29] via-[#1c1938] to-[#15132b] text-white flex flex-col lg:flex-row items-center justify-between px-8 sm:px-16 md:px-24 lg:px-32 overflow-hidden">
       {/* Left Content */}
       <div className="z-10 text-center lg:text-left max-w-2xl w-full lg:w-1/2">
         <motion.h1

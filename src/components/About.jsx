@@ -51,7 +51,7 @@ const EducationCard = ({ title, place, desc, delay }) => {
 
 const About = () => {
   return (
-    <section className="relative min-h-screen bg-gradient-to-b from-[#15132b] via-[#1a183a] to-[#0f0c29] text-white px-8 sm:px-16 md:px-24 lg:px-32 pt-20 pb-20 flex flex-col items-center overflow-hidden">
+    <section id="about" className="relative min-h-screen bg-gradient-to-b from-[#15132b] via-[#1a183a] to-[#0f0c29] text-white px-8 sm:px-16 md:px-24 lg:px-32 pt-20 pb-20 flex flex-col items-center overflow-hidden">
       
       {/* Heading Section */}
       <motion.div

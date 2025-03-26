@@ -11,13 +11,13 @@ const projects = [
   },
   {
     title: "SkillX",
-    description: "A skill-building platform with an interactive UI to explore and rate courses.",
+    description: "A skill-building platform with an interactive UI to explore.",
     image: "/skillx.png",
     link: "#"
   },
   {
     title: "Doctor Appointment Automation",
-    description: "An IoT-based automated appointment scheduling system with real-time monitoring.",
+    description: "An automated appointment scheduling system with real-time monitoring.",
     image: "/doctor-appointment-automation.png",
     link: "#"
   }
@@ -26,7 +26,7 @@ const projects = [
 
 const MyProjects = () => {
   return (
-    <section className="relative min-h-screen bg-gradient-to-r from-[#0f0c29] via-[#1c1938] to-[#15132b] text-white px-8 sm:px-16 md:px-24 lg:px-32 py-20">
+    <section id="projects" className="relative min-h-screen bg-gradient-to-r from-[#0f0c29] via-[#1c1938] to-[#15132b] text-white px-8 sm:px-16 md:px-24 lg:px-32 py-20">
       
       {/* Section Title */}
       <motion.h2

@@ -20,12 +20,12 @@
 }
 
 
- body {
+ /* body {
   cursor : none;
- }
+ } */
 
  input, textarea, button, a {
-  cursor: default; /* Show cursor for interactive elements */
+  cursor: pointer; 
 }
 
 
