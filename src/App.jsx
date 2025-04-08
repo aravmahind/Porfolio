@@ -19,7 +19,7 @@ function App() {
 
   return (
     <div>
-      {/* <Cursor /> */}
+      <Cursor />
       <Navbar />
       <Home onViewProjectsClick={scrollToProjects} />
       <About />
