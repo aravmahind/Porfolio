@@ -7,7 +7,7 @@ import MyProjects from './components/MyProjects';
 import Contacts from './components/Contacts';
 import TechPage from './components/TechPage';
 import Cursor from './components/Cursor';
-import Footer from './components/footer';
+import Footer from './components/Footer';
 
 function App() {
   // Create a reference to the MyProjects section
