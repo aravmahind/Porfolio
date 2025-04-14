@@ -1,84 +1,111 @@
-import React, { useEffect, useState } from "react";
-import { motion } from "framer-motion";
-import { FaReact, FaNodeJs, FaPython, FaJava, FaCss3Alt, FaHtml5, FaGitAlt, FaJs, FaPhp, FaDatabase, FaAndroid } from "react-icons/fa";
+import React, { useState } from "react";
+import { motion, useAnimationFrame, useMotionValue } from "framer-motion";
+import {
+  FaReact, FaNodeJs, FaPython, FaJava, FaCss3Alt, FaHtml5, FaGitAlt,
+  FaJs, FaPhp, FaDatabase, FaAndroid
+} from "react-icons/fa";
 import { SiFirebase, SiMongodb, SiExpress } from "react-icons/si";
+
+// Tech stack array
+const techStack = [
+  { icon: FaReact, name: "React" },
+  { icon: FaNodeJs, name: "Node.js" },
+  { icon: FaPython, name: "Python" },
+  { icon: FaJava, name: "Java" },
+  { icon: FaCss3Alt, name: "CSS" },
+  { icon: FaHtml5, name: "HTML" },
+  { icon: FaGitAlt, name: "Git" },
+  { icon: FaJs, name: "JavaScript" },
+  { icon: FaPhp, name: "PHP" },
+  { icon: FaDatabase, name: "Databases" },
+  { icon: SiFirebase, name: "Firebase" },
+  { icon: SiMongodb, name: "MongoDB" },
+  { icon: SiExpress, name: "Express.js" },
+  { icon: FaAndroid, name: "Android" },
+];
+
+// Infinite scrolling component
+const InfiniteScrollRow = ({ items, speed = 50 }) => {
+  const baseX = useMotionValue(0);
+
+  useAnimationFrame((t, delta) => {
+    baseX.set(baseX.get() - (speed * delta) / 1000);
+  });
+
+  return (
+    <div className="overflow-hidden w-full">
+      <motion.div
+        className="flex gap-10 items-center"
+        style={{ x: baseX }}
+      >
+        {[...items, ...items].map(({ icon: Icon, name }, index) => (
+          <div
+            key={index}
+            className="flex-shrink-0 flex flex-col items-center justify-center p-5 bg-[#1c1a35]/60 backdrop-blur-md border border-violet-500 rounded-2xl shadow-lg hover:shadow-purple-500/30 transition-all duration-300 cursor-pointer min-w-[100px]"
+          >
+            <Icon className="text-4xl sm:text-5xl text-purple-300 mb-2" />
+            <span className="text-sm sm:text-base text-gray-200">{name}</span>
+          </div>
+        ))}
+      </motion.div>
+    </div>
+  );
+};
 
 const TechPage = () => {
   const [hoveredTech, setHoveredTech] = useState(null);
 
-  const techStack = [
-    { icon: FaReact, name: "React" }, { icon: FaNodeJs, name: "Node.js" }, { icon: FaPython, name: "Python" },
-    { icon: FaJava, name: "Java" }, { icon: FaCss3Alt, name: "CSS" }, { icon: FaHtml5, name: "HTML" },
-    { icon: FaGitAlt, name: "Git" }, { icon: FaJs, name: "JavaScript" }, { icon: FaPhp, name: "PHP" },
-    { icon: FaDatabase, name: "Databases" }, { icon: SiFirebase, name: "Firebase" },
-    { icon: SiMongodb, name: "MongoDB" }, { icon: SiExpress, name: "Express.js" },
-    { icon: FaAndroid, name: "Android" }
-  ];
-
   return (
-    <section className="relative overflow-hidden h-screen bg-gradient-to-r from-[#0f0c29] via-[#1c1938] to-[#15132b] text-white flex flex-col items-center justify-center px-8">
-      
-      {/* Background Glow Effects */}
-      <div className="absolute top-[-100px] left-[-50px] w-55 h-55 bg-purple-500 opacity-20 rounded-full blur-3xl animate-pulse"></div>
-      <div className="absolute bottom-[-100px] right-[-50px] w-55 h-55 bg-blue-500 opacity-20 rounded-full blur-3xl animate-pulse"></div> 
+    <section className="relative min-h-screen bg-[#0f0c29] text-white overflow-hidden px-6 py-24 flex flex-col items-center justify-center">
+      {/* Blurred Background Orbs */}
+      <div className="absolute top-0 left-0 w-[400px] h-[400px] bg-purple-700 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-pulse"></div>
+      <div className="absolute bottom-0 right-0 w-[400px] h-[400px] bg-blue-500 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-pulse"></div>
 
-      {/* Title */}
+      {/* Section Heading */}
       <motion.h1
-        initial={{ opacity: 0, y: -30 }}
+        initial={{ opacity: 0, y: -40 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 1 }}
-        className="text-5xl md:text-7xl font-extrabold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-pink-500"
+        className="text-4xl md:text-6xl font-extrabold text-center bg-clip-text text-transparent bg-gradient-to-r from-pink-500 via-purple-400 to-blue-500 mb-6"
       >
-        My Tech Stack
+        Tech Stack I Love 💻
       </motion.h1>
 
-      {/* Tech Description */}
+      {/* Subheading */}
       <motion.p
-        initial={{ opacity: 0, y: 50 }}
+        initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 1, delay: 0.5 }}
-        className="text-lg md:text-2xl mb-8 text-gray-300 text-center"
+        transition={{ duration: 1.2 }}
+        className="text-lg md:text-xl text-gray-300 text-center max-w-2xl mb-14"
       >
-        These are the technologies I work with to build robust and scalable applications.
+        A showcase of the tools and technologies I use to build powerful web and mobile experiences.
       </motion.p>
 
-      {/* Tech Icons */}
-      <motion.div
-        className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6 gap-8 text-6xl"
+      {/* Infinite Scroll Row */}
+      <div
+        onMouseLeave={() => setHoveredTech(null)}
+        className="w-full max-w-6xl relative"
       >
-        {techStack.map(({ icon: Icon, name }, index) => (
-          <motion.div
-            key={index}
-            drag
-            dragConstraints={{ top: -50, left: -50, right: 50, bottom: 50 }}
-            dragElastic={0.2}
-            initial={{ y: 0 }}
-            animate={{ y: [0, -10, 0] }}
-            transition={{ repeat: Infinity, duration: 3, ease: "easeInOut" }}
-            whileHover={{ scale: 1.3, rotate: 5 }}
-            whileTap={{ scale: 0.9 }}
-            className="p-4 bg-gray-800 rounded-full shadow-lg hover:bg-purple-500 transition-all cursor-pointer"
-            onMouseEnter={() => setHoveredTech(name)}
-            onMouseLeave={() => setHoveredTech(null)}
-          >
-            <Icon className="text-white" />
-          </motion.div>
-        ))}
-      </motion.div>
+        <InfiniteScrollRow
+          items={techStack.map((tech) => ({
+            ...tech,
+            onHover: () => setHoveredTech(tech.name),
+            onLeave: () => setHoveredTech(null),
+          }))}
+        />
+      </div>
 
-      {/* Hovered Tech Name Display */}
+      {/* Hover Tooltip */}
       {hoveredTech && (
         <motion.div
-          initial={{ opacity: 0, y: 10, scale: 0.8 }}
-          animate={{ opacity: 1, y: 0, scale: 1 }}
-          exit={{ opacity: 0, y: 10 }}
-          transition={{ type: "spring", stiffness: 300 }}
-          className="absolute bottom-16 text-2xl font-semibold text-purple-300 bg-gray-900 px-4 py-2 rounded-lg shadow-md"
+          initial={{ opacity: 0, scale: 0.8, y: 20 }}
+          animate={{ opacity: 1, scale: 1, y: 0 }}
+          exit={{ opacity: 0 }}
+          className="absolute bottom-10 bg-[#1f1b36] px-6 py-2 rounded-lg shadow-xl text-lg font-semibold text-purple-300 border border-purple-500"
         >
           {hoveredTech}
         </motion.div>
       )}
-
     </section>
   );
 };

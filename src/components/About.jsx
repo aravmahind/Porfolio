@@ -8,11 +8,19 @@ const educationList = [
     title: "Bachelor's in Computer Engineering",
     place: "Vidyalankar Institute of Technology, Mumbai (2024 – Present)",
     desc: "Exploring data structures, web development, and AI-driven solutions.",
+    grade: "",
   },
   {
     title: "Diploma in Computer Engineering",
     place: "Government Polytechnic Thane (2021 – 2024)",
     desc: "Gained hands-on experience in programming, networking, and projects.",
+    grade: "92.46",
+  },
+  {
+    title: "SSC",
+    place: "Dnyan Vikas Vidyalay (2020-2021)",
+    desc: "",
+    grade: "95.40",
   },
 ];
 
@@ -27,7 +35,7 @@ const containerVariants = {
 };
 
 // Education Card Component
-const EducationCard = ({ title, place, desc, delay }) => {
+const EducationCard = ({ title, place, desc, grade, delay }) => {
   const [ref, inView] = useInView({ threshold: 0.2, triggerOnce: true });
 
   return (
@@ -44,6 +52,7 @@ const EducationCard = ({ title, place, desc, delay }) => {
         <h3 className="text-2xl font-semibold text-white">{title}</h3>
         <p className="text-gray-400">{place}</p>
         <p className="text-gray-300 mt-2">{desc}</p>
+        <p className="text-gray-200 mt-2">{grade}</p>
       </div>
     </motion.div>
   );
@@ -72,7 +81,7 @@ const About = () => {
       </motion.div>
 
       {/* Education Section */}
-      <div className="grid md:grid-cols-2 gap-10 w-full max-w-6xl">
+      <div className="grid md:grid-cols-1 gap-10 w-[75%] max-w-6xl">
         {educationList.map((edu, i) => (
           <EducationCard key={i} {...edu} delay={i * 0.2} />
         ))}
@@ -82,7 +91,7 @@ const About = () => {
       <div className="absolute bottom-0 left-0 w-full overflow-hidden leading-none">
         <svg
           viewBox="0 0 1440 320"
-          className="w-full h-40"
+          className="w-full h-20"
           preserveAspectRatio="none"
         >
           <path

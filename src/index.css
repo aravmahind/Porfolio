@@ -21,7 +21,7 @@
 
 
  body {
-  cursor : none;
+  cursor : default;
  }
 
  input, textarea, button, a {

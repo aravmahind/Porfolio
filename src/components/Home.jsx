@@ -45,12 +45,6 @@ const Home = ({ onViewProjectsClick }) => {
           transition={{ duration: 0.8, delay: 1 }}
           className="flex justify-center lg:justify-start gap-6"
         >
-          <Button
-            className="bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-700 hover:to-pink-700 text-white px-8 py-3 rounded-full text-lg transition-all duration-300 shadow-lg hover:scale-105"
-            onClick={onViewProjectsClick}
-          >
-            View Projects
-          </Button>
           <a
             href="/resume.pdf"
             download

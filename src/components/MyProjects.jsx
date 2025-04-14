@@ -1,25 +1,21 @@
 import React from "react";
 import { motion } from "framer-motion";
 import Button from "./ui/Button";
+import smartpack from "../assets/smartpack-ai.png";
+import skillx from "../assets/skillx.png";
 
 const projects = [
   {
     title: "SmartPack AI",
     description: "An intelligent packing assistant that suggests items based on weather and location.",
-    image: "/smartpack-ai.png",
-    link: "#"
+    image: smartpack,
+    link: "https://github.com/aravmahind/SmartPack"
   },
   {
     title: "SkillX",
     description: "A skill-building platform with an interactive UI to explore.",
-    image: "/skillx.png",
-    link: "#"
-  },
-  {
-    title: "Doctor Appointment Automation",
-    description: "An automated appointment scheduling system with real-time monitoring.",
-    image: "/doctor-appointment-automation.png",
-    link: "#"
+    image: skillx,
+    link: "https://github.com/aravmahind/SkillXPlatforms"
   }
   
 ];
@@ -39,7 +35,7 @@ const MyProjects = () => {
       </motion.h2>
 
       {/* Project Layout */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-10">
         {projects.map((project, index) => (
           <motion.div
             key={index}
@@ -48,11 +44,11 @@ const MyProjects = () => {
             transition={{ duration: 0.8, delay: index * 0.2 }}
             className={`bg-[#1c1938] p-6 rounded-xl shadow-xl border border-violet-400 transition-transform duration-300 hover:scale-105 ${index === 0 ? 'md:col-span-2 lg:col-span-1' : ''}`}
           >
-            {/* <img
+            <img
               src={project.image}
               alt={project.title}
               className="w-full h-48 object-cover rounded-lg mb-4 border border-violet-300"
-            /> */}
+            />
             <h3 className="text-2xl font-bold text-purple-400">{project.title}</h3>
             <p className="text-gray-300 mt-2 mb-4">{project.description}</p>
             <a href={project.link} className="inline-block mt-2">
