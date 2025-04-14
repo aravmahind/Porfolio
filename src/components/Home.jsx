@@ -26,7 +26,7 @@ const Home = ({ onViewProjectsClick }) => {
           transition={{ duration: 1 }}
           className="text-5xl md:text-7xl font-extrabold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-pink-500 drop-shadow-xl"
         >
-          Hey, I’m Arav
+          Hey, I'm Arav
         </motion.h1>
 
         <motion.p
@@ -56,30 +56,29 @@ const Home = ({ onViewProjectsClick }) => {
       </div>
 
       <motion.div
-  initial={{ opacity: 0, scale: 0.8 }}
-  animate={{ opacity: 1, scale: 1 }}
-  transition={{ duration: 1, delay: 1 }}
-  className="w-full lg:w-1/2 flex justify-center relative"
->
-  <div className="relative group rounded-full p-2 bg-gradient-to-r from-[#6a11cb] to-[#2575fc] shadow-xl transform transition-all duration-500 hover:scale-105">
+        initial={{ opacity: 0, scale: 0.8 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{ duration: 1, delay: 1 }}
+        className="w-full lg:w-1/2 flex justify-center relative"
+      >
+        <div className="relative group rounded-full p-2 bg-gradient-to-r from-[#6a11cb] to-[#2575fc] shadow-lg transform transition-all duration-300 hover:scale-[1.02]">
+          {/* Subtle Glassmorphism Effect */}
+          <div className="absolute inset-0 bg-black bg-opacity-10 backdrop-blur-sm rounded-full"></div>
 
-    {/* Darker Glassmorphism Effect */}
-    <div className="absolute inset-0 bg-black bg-opacity-20 backdrop-blur-xl rounded-full shadow-inner"></div>
+          {/* Profile Image */}
+          <div className="relative p-2 rounded-full overflow-hidden border-2 border-gray-700 group-hover:border-blue-400 transition-all duration-300">
+            <img
+              src="/AravPhoto.jpg"
+              alt="Arav Mahind"
+              className="w-64 h-64 md:w-80 md:h-80 lg:w-96 lg:h-96 object-cover rounded-full shadow-md transition-all duration-300"
+              loading="lazy"
+            />
+          </div>
 
-    {/* Profile Image */}
-    <div className="relative p-2 rounded-full overflow-hidden border-[3px] border-gray-800 group-hover:border-blue-500 transition-all duration-500">
-      <img
-        src="/AravPPicwithoutBG.png"
-        alt="Arav Mahind"
-        className="w-64 h-64 md:w-80 md:h-80 lg:w-96 lg:h-96 object-cover rounded-full shadow-lg transition-all duration-500"
-        loading="lazy"
-      />
-    </div>
-
-    {/* Soft Glow on Hover */}
-    <div className="absolute inset-0 rounded-full bg-gradient-to-r from-purple-500 to-blue-500 opacity-20 blur-2xl transition-all duration-500 group-hover:opacity-40"></div>
-  </div>
-</motion.div>
+          {/* Subtle Glow */}
+          <div className="absolute inset-0 rounded-full bg-gradient-to-r from-purple-500 to-blue-500 opacity-10 blur-xl transition-all duration-300 group-hover:opacity-20"></div>
+        </div>
+      </motion.div>
 
       <div className="absolute bottom-0 left-0 w-full overflow-hidden leading-none">
   <svg
