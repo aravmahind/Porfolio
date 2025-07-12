@@ -46,7 +46,7 @@ const Home = ({ onViewProjectsClick }) => {
           className="flex justify-center lg:justify-start gap-6"
         >
           <a
-            href="/resume.pdf"
+            href="/Resume_AravMahind.pdf"
             download
             className="border border-violet-400 bg-transparent hover:bg-violet-700 hover:text-white text-violet-200 px-8 py-3 rounded-full text-lg transition-all duration-300 shadow-lg hover:scale-105"
           >
