@@ -32,7 +32,7 @@ const Footer = () => {
               <i className="fab fa-linkedin" aria-hidden="true"></i>
             </a>
             <a 
-              href="https://twitter.com/aravmahind" 
+              href="https://twitter.com/arav_mahind" 
               target="_blank" 
               rel="noopener noreferrer" 
               className="hover:text-white transition hover:scale-110"
