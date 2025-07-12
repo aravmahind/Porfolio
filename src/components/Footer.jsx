@@ -23,7 +23,7 @@ const Footer = () => {
               <i className="fab fa-github" aria-hidden="true"></i>
             </a>
             <a 
-              href="https://www.linkedin.com/in/arav-mahind-7602a7281/" 
+              href="https://www.linkedin.com/in/arav-mahind/" 
               target="_blank" 
               rel="noopener noreferrer" 
               className="hover:text-white transition hover:scale-110"
